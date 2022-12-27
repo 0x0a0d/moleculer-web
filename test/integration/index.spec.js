@@ -3647,7 +3647,18 @@ describe("Test file uploading", () => {
 							}
 						},
 						action: "file.save"
-					}
+					},
+
+					"POST /1k": {
+						type: "multipart",
+						busboyConfig: {
+							limits: {
+								files: 1,
+								fileSize: 1e3,
+							},
+						},
+						action: "file.save",
+					},
 				},
 				// https://github.com/mscdex/busboy#busboy-methods
 				busboyConfig: {
@@ -3823,6 +3834,28 @@ describe("Test file uploading", () => {
 				expect(res.body).toEqual({ hash: origHashes["logo.png"], meta: {
 					$params: { id: "f1234" },
 				} });
+			});
+	});
+
+	it("should check fileSizes", () => {
+		return request(server)
+			.post("/upload/1k")
+			.attach('file', Buffer.from('a'.repeat(2e3)), 'test-file.log')
+			.then(res => {
+				expect(res.statusCode).toBe(413);
+				expect(res.headers["content-type"]).toBe("application/json; charset=utf-8");
+				expect(res.body).toEqual({
+					"code": 413,
+					"data": {
+						"encoding": "7bit",
+						"fieldname": "file",
+						"filename": "test-file.log",
+						"mimetype": "text/plain"
+					},
+					"message": "Payload too large",
+					"name": "PayloadTooLarge",
+					"type": "PAYLOAD_TOO_LARGE"
+				});
 			});
 	});
 
