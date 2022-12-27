@@ -1,5 +1,8 @@
 {
-  "name": "moleculer-web",
+  "name": "@cylution/moleculer-web",
+  "publishConfig": {
+    "access": "restricted"
+  },
   "version": "0.10.5",
   "description": "Official API Gateway service for Moleculer framework",
   "main": "index.js",
@@ -38,14 +41,14 @@
     "coveralls": "^3.1.1",
     "cross-env": "^7.0.3",
     "eslint": "^8.0.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-security": "^1.4.0",
+    "eslint-plugin-n": "^15.2.4",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-security": "^1.5.0",
     "express": "^4.17.1",
     "fakerator": "^0.3.4",
     "jest": "^27.2.5",
     "jest-cli": "^27.2.5",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "mime-types": "^2.1.33",
     "mkdirp": "^1.0.4",
     "moleculer": "^0.14.17",
@@ -57,9 +60,6 @@
     "supertest": "^6.1.6",
     "webpack": "^5.58.2",
     "webpack-dev-middleware": "^5.2.1"
-  },
-  "peerDependencies": {
-    "moleculer": "^0.13.0 || ^0.14.0"
   },
   "dependencies": {
     "@fastify/busboy": "^1.0.0",
