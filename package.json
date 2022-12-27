@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "restricted"
   },
-  "version": "0.10.5-22122701",
+  "version": "0.10.5-22122702",
   "description": "Official API Gateway service for Moleculer framework",
   "main": "index.js",
   "scripts": {
