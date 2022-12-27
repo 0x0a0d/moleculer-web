@@ -89,5 +89,10 @@
       "/node_modules/",
       "/test/services/"
     ]
-  }
+  },
+  "files": [
+    "index.d.ts",
+    "index.js",
+    "src"
+  ]
 }
